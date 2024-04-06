@@ -59,23 +59,18 @@ export default function Home() {
         setWs(socket); 
         socket.addEventListener("message", (event) => {
             setTags((prevMessages) => ([...prevMessages, event.data])); 
-            console.log("msg server - ", event.data); 
+            //console.log("msg server - ", event.data); 
         });
 
-        console.log("connected", event);
+        //console.log("connected", event);
     } 
-    
+
     ws?.close(1000, "Closing webSocket"); 
 
   },[]);
 
-  useEffect(()=> {
-    ws?.send("part5"); 
-  },[]); 
-
-
   function sendMessage() {
-    console.log("sending messages - ", textAreaValue); 
+    //console.log("sending messages - ", textAreaValue); 
     // const messageBlock = textAreaValue;
     if(textAreaValue !== "")
       ws?.send(username + " - "+textAreaValue); 
@@ -83,7 +78,7 @@ export default function Home() {
     setTextAreaValue(""); 
   }
 
-  console.log(tags); 
+  //console.log(tags); 
 
   return (
     
